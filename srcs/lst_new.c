@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   lst_new.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 12:40:53 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/03 12:04:15 by jde-melo         ###   ########.fr       */
+/*   Created: 2022/05/03 11:19:41 by jde-melo          #+#    #+#             */
+/*   Updated: 2022/05/03 11:41:38 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-typedef	struct s_list
+t_list	*lst_new(int *content)
 {
-	int				content;
-	int				pos;
-	struct s_list	*next;
-}					t_list;
-
-#endif
+	element = (t_list *)malloc(sizeof(t_list));
+	if (!element)
+		retunr (NULL);
+	element->content = content;
+	element->next = NULL;
+	return (element);
+}

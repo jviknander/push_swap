@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/27 12:40:53 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/03 12:04:15 by jde-melo         ###   ########.fr       */
+/*   Created: 2022/05/03 11:18:28 by jde-melo          #+#    #+#             */
+/*   Updated: 2022/05/03 12:01:41 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
 
-typedef	struct s_list
+int main(int argc, char **argv)
 {
-	int				content;
-	int				pos;
-	struct s_list	*next;
-}					t_list;
+	if (argc > 1)
+		while (lst_new)
+		{
+		
+		}
 
-#endif
+}
