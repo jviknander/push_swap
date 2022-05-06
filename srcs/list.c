@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:19:41 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/06 13:25:40 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/05/06 14:52:35 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	*lstclear(a_stack **lst, int value)
 void	*lstadd(a_stack **lst, int value)
 {
 	a_stack	*new_node;
-i	a_stack *tmp;
+	a_stack *tmp;
 
 	new_node = lstnew(value);
 	if(!*lst)
@@ -83,7 +83,16 @@ void	*lstadd_beg(a_stack **lst, int value)
 	new_node->prev = NULL;
 }
 
+void	*lstadd_end(a_stack **lst, int value)
+{
+	a_stack	*tmp;
 
+	tmp = lstlast(*lst);
+	if (!*lst)
+	{
+		*lst = 
+	}
+}
 
 int	*lstsize(a_stack *lst)
 {
