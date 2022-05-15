@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:18:28 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/03 12:01:41 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/05/15 19:57:55 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 int main(int argc, char **argv)
 {
 	if (argc > 1)
-		while (lst_new)
-		{
-		
-		}
+	{
 
+	}
+	else
+		if_error
+			write(1, "Error\n", 6);
 }

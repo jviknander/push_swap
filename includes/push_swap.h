@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 12:40:53 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/11 12:00:14 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/05/15 22:29:54 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef	struct a_stack
+typedef	struct s_struct
 {
-	int				value;
+	int				number;
 	int				pos;
-	struct a_stack	*next;
-	struct a_stack	*prev;
-}	a_stack;
+	struct s_struct	*next;
+	struct s_struct	*prev;
+}	t_stack;
+
+
+/*---------------list.c------------*/
+t_stack	*new_node(int number);
+t_stack	*last_node(t_stack *node);
+void	free_nodes(t_stack **head);
+void	add_node_front(t_stack	**head, t_stack *node);
+void	add_node_back(t_stack	**head, t_stack *node);
+int		head_size(t_stack *head);
+
+
+/*---------------if_error.c------------*/
+/*---------------p_s_r.c------------*/
+void swap(t_stack **head);
+/*---------------order.c------------*/
+/*---------------.c------------*/
+
 
 #endif

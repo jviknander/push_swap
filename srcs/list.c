@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:19:41 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/11 12:15:38 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/05/15 22:34:08 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 // creates a list
 
-a_stack	*new_node(int value)
+t_stack	*new_node(int number)
 {
-	a_stack	*new;
+	t_stack	*new;
 
-	new = (a_stack *)malloc(sizeof(a_stack));
+	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
-	new->value = value;
+	new->number = number;
 	new->next = NULL;
 	new->pos = 0;
 	new->prev = NULL;
 	return (new);
 }
 
-a_stack *last_node(a_stack *node)
+t_stack *last_node(t_stack *node)
 {
 	if (!node)
 		return (NULL);
@@ -41,41 +41,38 @@ a_stack *last_node(a_stack *node)
 	return (node);
 }
 
-void	lstclear(a_stack **lst, int value)
+void	free_nodes(t_stack **head)
 {
-	a_stack	*tmp;
+	t_stack	*tmp;
 
-	while (*lst)
+	while (*head)
 	{
-		tmp = (*lst)->next;
-		free(*lst);
-		*lst = tmp;
+		tmp = (*head)->next;
+		free(*head);
+		*head = tmp;
 	}
 	if (tmp)
 		free(tmp);
-	lst = NULL;
+	head = NULL;
 }
 
-/*
-void	add_node_front(a_stack **head, int value)
-{
-	a_stack	*new_node;
 
-	new_node = new_node(value);
+void	add_node_front(t_stack **head, t_stack *node)
+{
 	if (!*head)
 	{
-		*head = new_node;
+		*head = node;
 		return ;
 	}
-	(*head)->prev = new_node;
-	new_node->next = (*head);
-	new_node->prev = NULL;
-	(*head) = new_node; // o q ta na rimeira posicao seja o new_node.
+	(*head)->prev = node;
+	node->next = (*head);
+	node->prev = NULL;
+	(*head) = node;
 }
-*/
-void	add_node_back(a_stack **head, a_stack *node)
+
+void	add_node_back(t_stack **head, t_stack *node)
 {
-	a_stack	*tmp;
+	t_stack	*tmp;
 
 	if (!*head)
 	{
@@ -90,30 +87,62 @@ void	add_node_back(a_stack **head, a_stack *node)
 	return ;
 }
 
-int	lstsize(a_stack *lst)
+int	head_size(t_stack *head)
 {
 	int	size;
 
 	size = 0;
-	while (lst)
+	while (head)
 	{
-		lst = lst->next;
+		head = head->next;
 		size++;
 	}
 	return (size);
 }
 
-
+/*
 int main ()
 {
-	a_stack *head;
-	a_stack *node;
+	t_stack *head;
+	t_stack *node;
 
 	node = new_node(6); 
 	head = new_node(4);
 	add_node_back(&head, node);
-	printf("%d\n", head->value);
-	printf("%d\n", head->next->value);
-	printf("%d\n", head->next->prev->value);
+	printf("%d\n", head->number);
+	printf("%d\n", head->next->number);
+	printf("%d\n", head->next->prev->number);
 	return 0;
+
+
+int main()
+{
+	t_stack *head;
+	t_stack *node1;
+	t_stack *node2;
+	t_stack *node3;
+	t_stack *node4;
+	
+	head = new_node(1);
+	node1 = new_node(2);
+	node2 = new_node(3);
+	node3 = new_node(4);
+	node4 = new_node(5);
+
+	add_node_front(&head, node1);
+	add_node_front(&head, node2);
+	add_node_front(&head, node3);
+	add_node_front(&head, node4);
+
+	printf("%d\n", head->number);
+	printf("%d\n", head->next->number);
+	printf("%d\n", head->next->next->number);
+	printf("%d\n", head->next->next->next->number);
+	printf("%d\n", head->next->next->next->next->number);
+
 }
+
+
+
+
+*/
