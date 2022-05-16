@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:19:41 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/15 22:34:08 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/05/16 19:56:44 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	add_node_front(t_stack **head, t_stack *node)
 	node->prev = NULL;
 	(*head) = node;
 }
-
+/*
 void	add_node_back(t_stack **head, t_stack *node)
 {
 	t_stack	*tmp;
@@ -83,8 +83,23 @@ void	add_node_back(t_stack **head, t_stack *node)
 	tmp->next = node;
 	node->next = NULL;
 	node->prev = tmp;
-
 	return ;
+}
+*/
+// ajuda do fred
+
+void	add_node_back(t_stack **head, t_stack *node)
+{
+	t_stack	*tmp;
+
+	if (!*head)
+	{
+		*head = node;
+		return ;
+	}
+	tmp = *head;
+	tmp->prev->next = node;
+	node->next = tmp;
 }
 
 int	head_size(t_stack *head)

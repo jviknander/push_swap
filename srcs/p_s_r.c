@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 21:28:13 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/16 00:19:43 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/05/16 19:56:52 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ void	swap(t_stack **head)
 	return ;
 }
 
+void	rotate(t_stack **head)
+{
+	(*head) = (*head)->next;
+	
+
+}
+
+
+
 int main(int argc, char **argv)
 {
 	if (argc <  2)
@@ -39,17 +48,19 @@ int main(int argc, char **argv)
 	while(i--)
 		add_node_back(&head, new_node(ft_atoi(argv[j++])));
 	temp = head;
-	while (++i < argc - 1)
-	{
-		//temp = new_node(ft_atoi(argv[i]));
-		printf("%d\n", temp->number);
-		temp = temp->next;	
-	}
-	printf("%d\n", head->number);
-	printf("%d\n", head->next->next->number);
-	swap(&head);
-	printf("%d\n", head->number);
-	printf("%d\n", head->next->number);
-	printf("%d\n", head->next->next->number);
-
+//	while (++i < argc - 1)
+//	{
+		//	temp = new_node(ft_atoi(argv[i]));
+	//	printf("%d\n", temp->number);
+	//	temp = temp->next;	
+//	}
+	printlist(&head);
+//	printf("%d\n", head->number);
+//	printf("%d\n", head->next->next->number);
+//	swap(&head);
+//	printf("%d\n", head->number);
+//	printf("%d\n", head->next->number);
+//	printf("%d\n", head->next->next->number);
+	
 }
+
