@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 21:28:13 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/16 19:56:52 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/05/17 22:20:03 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,41 +26,38 @@ void	swap(t_stack **head)
 
 void	rotate(t_stack **head)
 {
-	(*head) = (*head)->next;
-	
+	t_stack	*new_head;
+	t_stack	*go_last;
+
+
+	new_head = (*head)->next;
+	(*head)	->prev = NULL;
+
+	go_last = (*head);
+	last_node(*head)->next = go_last;
+	go_last->next = NULL;
 
 }
 
-
-
 int main(int argc, char **argv)
 {
-	if (argc <  2)
-		return 1;
-	
 	t_stack *head;
-	t_stack *temp;
+//	t_stack	*temp;
 	int i;
-	int	j;
 
-	i = argc - 1;
-	j = 1;
-	while(i--)
-		add_node_back(&head, new_node(ft_atoi(argv[j++])));
-	temp = head;
-//	while (++i < argc - 1)
-//	{
-		//	temp = new_node(ft_atoi(argv[i]));
-	//	printf("%d\n", temp->number);
-	//	temp = temp->next;	
-//	}
-	printlist(&head);
-//	printf("%d\n", head->number);
-//	printf("%d\n", head->next->next->number);
-//	swap(&head);
-//	printf("%d\n", head->number);
-//	printf("%d\n", head->next->number);
-//	printf("%d\n", head->next->next->number);
-	
+	i = 1;
+	if (argc >= 2)
+	{
+		while (argc > i)
+		{
+			add_node_back(&head, new_node(ft_atoi(argv[i++])));
+		}
+		swap(&head);
+		printf("%d\n", head->number);
+		printf("%d\n", head->next->number);
+		printf("%d\n", head->next->next->number);
+		printf("%d\n", head->next->next->next->number);
+		//printlist(&head);
+	}
 }
 
