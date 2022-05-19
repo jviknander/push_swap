@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:19:41 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/17 20:47:11 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/05/19 21:46:40 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,37 +107,11 @@ int main ()
 
 	node = new_node(6); 
 	head = new_node(4);
-	add_node_back(&head, node);
-	printf("%d\n", head->number);
-	printf("%d\n", head->next->number);
-	printf("%d\n", head->next->prev->number);
-	return 0;
-
-
-int main()
-{
-	t_stack *head;
-	t_stack *node1;
-	t_stack *node2;
-	t_stack *node3;
-	t_stack *node4;
-	
-	head = new_node(1);
-	node1 = new_node(2);
-	node2 = new_node(3);
-	node3 = new_node(4);
-	node4 = new_node(5);
-
-	add_node_front(&head, node1);
-	add_node_front(&head, node2);
-	add_node_front(&head, node3);
-	add_node_front(&head, node4);
-
+	add_node_front(&head, node);
+	add_node_front(&head, new_node(7));
 	printf("%d\n", head->number);
 	printf("%d\n", head->next->number);
 	printf("%d\n", head->next->next->number);
-	printf("%d\n", head->next->next->next->number);
-	printf("%d\n", head->next->next->next->next->number);
+	return 0;
 
-}
-*/
+}*/
