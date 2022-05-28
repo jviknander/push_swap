@@ -6,13 +6,13 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:19:41 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/28 17:02:15 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/05/28 20:11:33 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// creates a list
+// creates a stack
 
 t_stack	*new_node(int number)
 {
@@ -28,6 +28,8 @@ t_stack	*new_node(int number)
 	return (new);
 }
 
+// returns stacks' last node
+
 t_stack *last_node(t_stack *node)
 {
 	if (!node)
@@ -40,6 +42,8 @@ t_stack *last_node(t_stack *node)
 	}
 	return (node);
 }
+
+// free the node!!!!
 
 void	free_nodes(t_stack **head)
 {
@@ -56,6 +60,7 @@ void	free_nodes(t_stack **head)
 	head = NULL;
 }
 
+//adds node to the top of the stack
 
 void	add_node_front(t_stack **head, t_stack *node)
 {
@@ -69,6 +74,8 @@ void	add_node_front(t_stack **head, t_stack *node)
 	node->prev = NULL;
 	(*head) = node;
 }
+
+//adds node at the end of the stack
 
 void	add_node_back(t_stack **head, t_stack *node)
 {
@@ -85,6 +92,8 @@ void	add_node_back(t_stack **head, t_stack *node)
 	node->prev = tmp;
 	return ;
 }
+
+//stack size
 
 int	head_size(t_stack *head)
 {
