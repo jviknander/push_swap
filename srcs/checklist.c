@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:08:34 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/27 17:21:17 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/05/28 16:59:03 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,43 +20,49 @@ int	is_int(int argc, char **argv)
 
 	i = 0;
 	arg = 1;
-	if (argc >= 2)
+	while (argc > arg)
 	{
-		while (argc > arg)
+		while (argv[i])
 		{
-			if (argv[arg][i] >= '0' || argv[arg][i] <= '9')
+			if (argv[arg][i] == '-')
 				i++;
-			else
-				return (0);
-		arg++;
-		i = 0;
+			if (ft_isdigit(argv[arg][i]) == 0)
+			{
+				write(1, "Error\n", 6);
+				return 0;
+			}
+			arg++;
 		}
+		i++;
 	}
 	return (1);
 }
-/*
+
 // bigger than int
-int bigger_than_int(int argc, char **argv)
+int is_big(int argc, char **argv)
 {
+	INT_MIN
+	INT_MAX
 }
 
 
 // duplicates
-int is_duplicate(int argc, char **argv)
+int is_dup(int argc, char **argv)
 {
+
 }
 
 
-// is sorted
-int is_sorted(int argc, char **argv)
-{
-}
 
-// write error
-*/
+
+int check_errors(int argc, char **argv)
+{
+	if (!is_int(argv) || !is_dup(argv) || !is_big(argv))
+		return (0);
+	return (1);
+}
 
 int main(int argc, char **argv)
 {
-	if (!(is_int(argc, argv)))
-			write(1, "Error", 6);
+
 }

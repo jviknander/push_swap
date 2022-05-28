@@ -6,27 +6,46 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 20:27:02 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/27 17:27:19 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/05/28 17:08:37 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+/*
+void	push(t_stack **head_a, t_stack **head_b)
+{
+	add_node_front(head_a, new_node((*head_b)->number));
+	(*head_b) = (*head_b)->next;
+	free((*head_b)->prev);
+	(*head_b)->prev = NULL;
+}
+*/
 void	push(t_stack **head_a, t_stack **head_b)
 {
 	t_stack	*aux;
 
+	if (head_size(*head_a) == 0)
+		return ;
 	aux = *head_a;
-	add_node_front(&aux, *head_b);
-	if ((*head_a)->next != NULL)
+	add_node_front(head_b, aux);
+	if ((*head_a)->next)
 	{
 		aux = (*head_a)->next;
 		aux->prev = NULL;
 		free(*head_a);
+		*head_a = aux;
 	}
 	else
-	{
+		free_nodes(head_a);
+}
 
-	}
+void	pa_pb(t_stack **a, t_stack **b, char stack)
+{
+	push(a, b);
+	if (stack == 'a')
+		write(1, "pa\n", 3);
+	else if (stack == 'b')
+		write(1, "pb\n", 3);
 }
 
 int main(int argc, char **argv)
