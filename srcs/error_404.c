@@ -6,11 +6,12 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:08:34 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/28 22:25:12 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/05/29 16:46:30 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <limits.h>
 
 // not int
 int	is_int(int argc, char **argv)
@@ -38,7 +39,7 @@ int	is_int(int argc, char **argv)
 	}
 	return (1);
 }
-/*
+
 // bigger than int
 int is_big(int argc, char **argv)
 {
@@ -52,20 +53,36 @@ int is_big(int argc, char **argv)
 		i = 0;
 		while (argv[arg][i])
 		{
-			if ( < INT_MIN || > INT_MAX)
+			if (is_int(argc, argv) < INT_MIN || is_int(argc, argv) > INT_MAX)
 			{
 				write(1, "Error\n", 6);
-				return (0)'
+				return (0);
 			}
+			i++;
 		}
-		return (1);
-
+		arg++;
+	}
+	return (1);
 }
 
 
 // duplicates
 int is_dup(int argc, char **argv)
 {
+	int i;
+	int arg;
+
+	i = 0;
+	arg = 1;
+	if (argc > arg)
+	{
+		i = 0;
+		while (argv[arg][i])
+		{
+			
+
+		}
+	}
 
 }
 
@@ -91,6 +108,6 @@ int main(int argc, char **argv)
 		{
 			add_node_back(&head_a, new_node(ft_atoi(argv[i++])));
 		}
-		is_int(argc, argv);
+		is_big(argc, argv);
 	}
 }
