@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_utils2.c                                      :+:      :+:    :+:   */
+/*   list_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/06 12:11:09 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/06 12:46:41 by jde-melo         ###   ########.fr       */
+/*   Created: 2022/06/06 14:24:25 by jde-melo          #+#    #+#             */
+/*   Updated: 2022/06/06 15:47:30 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../insludes/push_swap.h"
+#include "../includes/push_swap.h"
 
 //stack size
 
@@ -29,30 +29,50 @@ int	head_size(t_stack *head)
 
 // min value of the list
 
-void	min_list(t_stack **head)
+int	min_list(t_stack *head)
 {
 	int min;
-
-	while (*head->next != NULL)
+	
+	min = head->number;
+	while (head)
 	{
-		if (*head->number < min)
-			*head->number = min;
-		*head = *head->next;
+		if (head->number < min)
+			min = head->number;
+		head = head->next;
 	}
 	return (min);
 }
 
-
 // max value of the list
 
-void max_list(t_stack **head)
+int	max_list(t_stack *head)
 {
 	int max;
-
-	while (*head->next != NULL)
+	
+	max = head->number;
+	while (head)
 	{
-		if (*head->number > max)
-			max = *head->number;
+		if (head->number > max)
+			max = head->number;
 		head = head->next;
 	}
+	return (max);
 }
+/*
+int main(int argc, char **argv)
+{
+	t_stack *head_a;
+	int i;
+
+	i = 1;
+	if (argc >= 2)
+	{
+		while (argc > i)
+		{
+			add_node_back(&head_a, new_node(ft_atoi(argv[i++])));
+		}
+		printf("smol number is: %d\n", max_list(head_a));
+		
+	}
+}
+*/
