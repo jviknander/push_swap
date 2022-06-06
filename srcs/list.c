@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:19:41 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/28 20:11:33 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/06 12:47:13 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,21 +91,6 @@ void	add_node_back(t_stack **head, t_stack *node)
 	node->next = NULL;
 	node->prev = tmp;
 	return ;
-}
-
-//stack size
-
-int	head_size(t_stack *head)
-{
-	int	size;
-
-	size = 0;
-	while (head)
-	{
-		head = head->next;
-		size++;
-	}
-	return (size);
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:08:34 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/29 16:46:30 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/06 11:46:20 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int is_big(int argc, char **argv)
 	return (1);
 }
 
-
+/*
 // duplicates
 int is_dup(int argc, char **argv)
 {
