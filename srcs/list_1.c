@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_node.c                                          :+:      :+:    :+:   */
+/*   list_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/03 11:19:41 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/06 12:47:13 by jde-melo         ###   ########.fr       */
+/*   Created: 2022/06/06 17:12:00 by jde-melo          #+#    #+#             */
+/*   Updated: 2022/06/06 17:13:09 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ t_stack	*new_node(int number)
 }
 
 // returns stacks' last node
-
-t_stack *last_node(t_stack *node)
+t_stack	*last_node(t_stack *node)
 {
 	if (!node)
 		return (NULL);
@@ -44,7 +43,6 @@ t_stack *last_node(t_stack *node)
 }
 
 // free the node!!!!
-
 void	free_nodes(t_stack **head)
 {
 	t_stack	*tmp;
@@ -61,7 +59,6 @@ void	free_nodes(t_stack **head)
 }
 
 //adds node to the top of the stack
-
 void	add_node_front(t_stack **head, t_stack *node)
 {
 	if (!*head)

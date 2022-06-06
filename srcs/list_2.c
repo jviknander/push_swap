@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:24:25 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/06 15:47:30 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/06 17:20:07 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	head_size(t_stack *head)
 
 int	min_list(t_stack *head)
 {
-	int min;
-	
+	int	min;
+
 	min = head->number;
 	while (head)
 	{
@@ -47,8 +47,8 @@ int	min_list(t_stack *head)
 
 int	max_list(t_stack *head)
 {
-	int max;
-	
+	int	max;
+
 	max = head->number;
 	while (head)
 	{

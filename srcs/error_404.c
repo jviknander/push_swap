@@ -6,12 +6,11 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:08:34 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/06 15:48:36 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/06 18:42:13 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <limits.h>
 
 // not int
 int	is_int(int argc, char **argv)
@@ -41,7 +40,7 @@ int	is_int(int argc, char **argv)
 }
 
 // bigger than int
-int is_big(int argc, char **argv)
+int is_big(int argc, char **argv, char *str)
 {
 	int	i;
 	int	arg;
@@ -53,7 +52,7 @@ int is_big(int argc, char **argv)
 		i = 0;
 		while (argv[arg][i])
 		{
-			if (is_int(argc, argv) < INT_MIN || is_int(argc, argv) > INT_MAX)
+			if (is_int(argc, argv))
 			{
 				write(1, "Error\n", 6);
 				return (0);
@@ -65,28 +64,22 @@ int is_big(int argc, char **argv)
 	return (1);
 }
 
-/*
+
 // duplicates
-int is_dup(int argc, char **argv)
+/*
+int	is_dup(int *stack, int len, char *string)
 {
-	int i;
-	int arg;
+	int	number;
+	int	iter;
 
-	i = 0;
-	arg = 1;
-	if (argc > arg)
-	{
-		i = 0;
-		while (argv[arg][i])
-		{
-			
-
-		}
-	}
-
+	number = ft_atoi(string);
+	iter = -1;
+	while (++iter < len)
+		if (stack[iter] == number)
+			return (1);
+	return (0);
 }
-
-
+*/
 
 
 int check_errors(int argc, char **argv)
@@ -95,7 +88,7 @@ int check_errors(int argc, char **argv)
 		return (0);
 	return (1);
 }
-*/
+
 int main(int argc, char **argv)
 {
 	t_stack *head_a;
