@@ -6,88 +6,86 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:08:34 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/06 18:42:13 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/15 15:17:21 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-// not int
-int	is_int(int argc, char **argv)
-{
-	int	i;
-	int arg;
-
-	i = 0;
-	arg = 1;
-	while (argc > arg)
-	{
-		i = 0;
-		while (argv[arg][i])
-		{
-			if (argv[arg][i] == '-' || argv[arg][i] == '+')
-				i++;
-			if (ft_isdigit(argv[arg][i]) == 0)
-			{
-				write(1, "Error\n", 6);
-				return (0);
-			}
-			i++;
-		}
-		arg++;
-	}
-	return (1);
-}
-
-// bigger than int
-int is_big(int argc, char **argv, char *str)
-{
-	int	i;
-	int	arg;
-
-	i = 0;
-	arg = 1;
-	while (argc > arg)
-	{
-		i = 0;
-		while (argv[arg][i])
-		{
-			if (is_int(argc, argv))
-			{
-				write(1, "Error\n", 6);
-				return (0);
-			}
-			i++;
-		}
-		arg++;
-	}
-	return (1);
-}
-
-
-// duplicates
+#include "../libft/libft.h"
 /*
-int	is_dup(int *stack, int len, char *string)
+int is_duplicate(t_stack *head, int len, char *str)
 {
 	int	number;
 	int	iter;
 
-	number = ft_atoi(string);
-	iter = -1;
+	number = ft_atoi(str);
+	number = -1;
 	while (++iter < len)
-		if (stack[iter] == number)
+		if(value[iter] == number)
 			return (1);
 	return (0);
 }
 */
-
-
-int check_errors(int argc, char **argv)
+static int	ft_isspace(int chr)
 {
-	if (!is_int(argv) || !is_dup(argv) || !is_big(argv))
-		return (0);
-	return (1);
+	return (chr == 9 || chr == 10 || chr == 11
+		|| chr == 12 || chr == 13 || chr == 0 || chr == ' ');
 }
+
+static int	ft_issign(char chr)
+{
+	return (chr == '-' || chr == '+');
+}
+
+static int	apinto_atoi(const char *str, int *error)
+{
+	int	sign;
+	int	res;
+
+	sign = 1;
+	while (ft_isspace(*str))
+		str++;
+	if (ft_issign(*str))
+	{
+		if (*str == '-')
+			sign = -1;
+		str++;
+	}
+	res = 0;
+	while (ft_isdigit(*str))
+	{
+		if ((res * 10 + (*(str) - 48)) < res)
+			*error = 1;
+		res = res * 10 + (*(str++) - 48);
+	}
+	if (*str && !ft_isdigit(*str))
+		*error = 1;
+	return (res * sign);
+}
+
+int	ft_is_int(char *src)
+{
+	int		value;
+	int		error;
+
+	error = 0;
+	value = apinto_atoi(src, &error);
+	if (!error)
+		return (1);
+	else
+		return (0);
+}
+int	parsing(char **argv, t_stack *head)
+{
+	while (*++argv)
+		if (ft_is_int(*argv))
+			head->number = ft_atoi(*argv);
+	else
+		return (0);
+	return(1);
+
+}
+
 
 int main(int argc, char **argv)
 {
@@ -101,6 +99,6 @@ int main(int argc, char **argv)
 		{
 			add_node_back(&head_a, new_node(ft_atoi(argv[i++])));
 		}
-		is_big(argc, argv);
+		parsing(argv, head_a);
 	}
 }
