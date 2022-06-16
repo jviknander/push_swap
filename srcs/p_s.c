@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 20:27:02 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/28 21:48:27 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/16 16:05:07 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	swap(t_stack **head)
 	(*head)->next->number = tmp;
 }
 
-void sa_sb_ss(t_stack **a, t_stack **b, char stack)
+void	sa_sb_ss(t_stack **a, t_stack **b, char stack)
 {
 	if (stack == 'a')
 	{
@@ -57,7 +57,6 @@ void	push(t_stack **src, t_stack **dest)
 
 void	pa_pb(t_stack **a, t_stack **b, char stack)
 {
-	
 	if (stack == 'a')
 	{
 		push(b, a);
@@ -69,7 +68,7 @@ void	pa_pb(t_stack **a, t_stack **b, char stack)
 		write(1, "pb\n", 3);
 	}
 }
-
+/*
 int main(int argc, char **argv)
 {
 	t_stack *head_a;
@@ -96,4 +95,4 @@ int main(int argc, char **argv)
 		printlist(&head_b);
 	}
 }
-
+*/

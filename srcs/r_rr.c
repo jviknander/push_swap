@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 21:28:13 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/28 21:51:39 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/16 16:06:40 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	rotate(t_stack **head)
 	(*head) = new_head;
 }
 
-void ra_rb_rr(t_stack **a, t_stack **b, char stack)
+void	ra_rb_rr(t_stack **a, t_stack **b, char stack)
 {
 	if (stack == 'a')
 	{
@@ -47,14 +47,13 @@ void ra_rb_rr(t_stack **a, t_stack **b, char stack)
 		rotate(b);
 		write(1, "rr\n", 3);
 	}
-
 }
 
 // shifts down all elements by 1
 
 void	rev_rot(t_stack **head)
 {
-	t_stack *new_head;
+	t_stack	*new_head;
 	t_stack	*go_last;
 
 	if (!(*head))
@@ -67,7 +66,7 @@ void	rev_rot(t_stack **head)
 	(*head) = new_head;
 }
 
-void rra_rrb_rrr(t_stack **a, t_stack **b, char stack)
+void	rra_rrb_rrr(t_stack **a, t_stack **b, char stack)
 {
 	if (stack == 'a')
 	{
@@ -85,5 +84,4 @@ void rra_rrb_rrr(t_stack **a, t_stack **b, char stack)
 		rev_rot(b);
 		write(1, "rrr\n", 3);
 	}
-
 }
