@@ -6,86 +6,87 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:08:34 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/16 14:40:49 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/18 01:32:02 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include "../libft/libft.h"
-/*
-int is_duplicate(t_stack *head, int len, char *str)
-{
-	int	number;
-	int	iter;
 
-	number = ft_atoi(str);
-	number = -1;
-	while (++iter < len)
-		if(value[iter] == number)
-			return (1);
+long	ft_atol(char *str);
+{
+	int		i;
+	long	result;
+	int		sign;
+
+	i = 0;
+	sign = -1;
+	result = 0;
+	while (str[i] == ' ')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 - (str[i] - '0');
+		i++;
+	}
+	return (result * sign);
+}
+
+int is_duplicate(char **argv)
+{
+	int i;
+	int dup;
+
+	i = 0;
+	while (argv[i])
+	{
+		dup = i + 1;
+		while (argv[dup])
+		{
+			if (ft_atol(argv[i]) == ft_atol(argv[dup]))
+				return write(1, "Error\n", 6);
+			dup++;
+		}
+		i++;
+	}
 	return (0);
 }
-*/
-static int	ft_isspace(int chr)
-{
-	return (chr == 9 || chr == 10 || chr == 11
-		|| chr == 12 || chr == 13 || chr == 0 || chr == ' ');
-}
 
-static int	ft_issign(char chr)
+int	is_int(int argc, char **argv)
 {
-	return (chr == '-' || chr == '+');
-}
+	int		i;
+	int		arg;
+	long	nb;
 
-static int	apinto_atoi(const char *str, int *error)
-{
-	int	sign;
-	int	res;
-
-	sign = 1;
-	while (ft_isspace(*str))
-		str++;
-	if (ft_issign(*str))
+	arg = 1;
+	while (argv[arg] )
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		i = 0;
+		while (argv[arg][i])
+		{
+			while (argv[arg][i] == '-' || argv[arg][i] == '+')
+				i++;
+			nb = atol(argv[arg]);
+			if (ft_isdigit(argv[arg][i]) == 0 || 
+					(nb > 2147483647 || nb < -2147483648))
+				return  write(1, "Error\n", 6);
+			i++;
+		}
+		arg++;
 	}
-	res = 0;
-	while (ft_isdigit(*str))
-	{
-		if ((res * 10 + (*(str) - 48)) < res)
-			*error = 1;
-		res = res * 10 + (*(str++) - 48);
-	}
-	if (*str && !ft_isdigit(*str))
-		*error = 1;
-	return (res * sign);
+	return (0);
 }
 
-int	ft_is_int(char *src)
+int	validate(int argc, char **argv)
 {
-	int		value;
-	int		error;
-
-	error = 0;
-	value = apinto_atoi(src, &error);
-	if (!error)
-		return (1);
-	else
-		return (0);
+	if (argc == 2)
+	if (is_duplicate(argv))
 }
-int	parsing(char **argv, t_stack *head)
-{
-	while (*++argv)
-		if (ft_is_int(*argv))
-			head->number = ft_atoi(*argv);
-	else
-		return (0);
-	return(1);
-
-}
-
 
 int main(int argc, char **argv)
 {
@@ -99,6 +100,6 @@ int main(int argc, char **argv)
 		{
 			add_node_back(&head_a, new_node(ft_atoi(argv[i++])));
 		}
-		parsing(argv, head_a);
+		is_duplicate(argv);
 	}
 }
