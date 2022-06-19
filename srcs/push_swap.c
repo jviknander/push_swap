@@ -6,18 +6,19 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:18:28 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/05/15 19:57:55 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/19 11:02:41 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 int main(int argc, char **argv)
 {
-	if (argc > 1)
-	{
+	t_stack	*stack_a;
 
-	}
-	else
-		if_error
-			write(1, "Error\n", 6);
+	stack_a = NULL;
+	if (!is_valid)
+		write error
+			ft_lst_clear
+	if (!is_sorted)
+
 }

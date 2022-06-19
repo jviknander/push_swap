@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:08:34 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/18 01:32:02 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/19 11:50:29 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ long	ft_atol(char *str);
 	return (result * sign);
 }
 
-int is_duplicate(char **argv)
+int	is_duplicate(char **argv)
 {
 	int i;
 	int dup;
@@ -49,7 +49,7 @@ int is_duplicate(char **argv)
 		while (argv[dup])
 		{
 			if (ft_atol(argv[i]) == ft_atol(argv[dup]))
-				return write(1, "Error\n", 6);
+				return (1);
 			dup++;
 		}
 		i++;
@@ -74,7 +74,7 @@ int	is_int(int argc, char **argv)
 			nb = atol(argv[arg]);
 			if (ft_isdigit(argv[arg][i]) == 0 || 
 					(nb > 2147483647 || nb < -2147483648))
-				return  write(1, "Error\n", 6);
+				return (1);
 			i++;
 		}
 		arg++;
@@ -82,12 +82,19 @@ int	is_int(int argc, char **argv)
 	return (0);
 }
 
-int	validate(int argc, char **argv)
+
+int	error_404(int argc, char **argv)
 {
-	if (argc == 2)
 	if (is_duplicate(argv))
+		return (1);
+	if (is_int(argc, argv))
+		return (1);
+	if (argc == 1)
+		return (1);
+	return (0);
 }
 
+/*
 int main(int argc, char **argv)
 {
 	t_stack *head_a;
@@ -102,4 +109,4 @@ int main(int argc, char **argv)
 		}
 		is_duplicate(argv);
 	}
-}
+}*/
