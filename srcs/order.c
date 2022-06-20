@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:46:34 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/19 13:54:08 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/20 21:43:31 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	is_sorted(t_stack **head)
 
 	size = head_size(head);
 	if (head->next->number > head->number)
+	{
 		head->next;
+		return (0);
+	}
 	else
 	{
 		if (size == 3)
@@ -37,9 +40,10 @@ void	order_3(t_stack **head)
 {
 	t_stack	*second;
 
+	second =  head->next->number;
 	if (head->number[0] > head->number[2])
 	{
-
+		
 	}
 	else
 
