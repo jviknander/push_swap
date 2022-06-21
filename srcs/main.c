@@ -1,51 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   order.c                                            :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/06 11:46:34 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/21 18:10:21 by jde-melo         ###   ########.fr       */
+/*   Created: 2022/06/21 17:16:46 by jde-melo          #+#    #+#             */
+/*   Updated: 2022/06/21 17:40:56 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../includes/push_swap"
 
-//the stack is sorted
-
-void	is_sorted(t_stack **head)
+int	main(int argc, char **argv)
 {
-	int	size;
-
-	size = head_size(head);
-	if (head->next->number > head->number)
-	{
-		head->next;
-		return (0);
-	}
-	else
-	{
-		if (size == 3)
-			order_3(head);
-		if (size == 5)
-			order_5(head);
-	}
-	return (0);
+	t_stack	*a_stack;
+	t_stack	*b_stack;
+	
+	a_stack = NULL;
+	b_stack = NULL;
 }
-
-//order 3
-
-void	order_3(t_stack **head)
-{
-	if (head->number[0] > head->number[2])
-	{
-
-				
-	}
-	else
-
-
-}
-
-//order 5
