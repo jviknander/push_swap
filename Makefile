@@ -6,36 +6,35 @@
 #    By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 13:22:51 by jde-melo          #+#    #+#              #
-#    Updated: 2022/04/28 13:26:36 by jde-melo         ###   ########.fr        #
+#    Updated: 2022/06/22 01:35:13 by jde-melo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
-LIB1	= ar -rcs
-LIB2	= ranlib
 RM		= /bin/rm -f
 
-NAME	= push_swap.a
+NAME	= push_swap
 
-INCLUDE	= push_swap.h
-SRCS	= push_swap.c
+INCLUDE	= ./includes/push_swap.h ./libft/libft.h
+SRCS	= push_swap.c main.c error_404.c list_1.c list_2.c \
+		  order.c r_rr.c p_s.c
 
 all:		$(NAME)
 
+OBJS	= ${SRCS:.c=.o}
+
 $(NAME):	$(OBJS) $(INCLUDE)
-			$(LIB1) $(NAME) $(OBJS)
-			$(LIB2) $(NAME)
+			$(NAME) $(OBJS)
+			$(NAME)
 
 
 clean:
-			$(RM) $(OBJS) $(BONUS_O)
+			$(RM) $(OBJS)
 
 fclean:		clean
 			$(RM) $(NAME)
 
 re:			fclean all
-
-rebonus:	fclean bonus
 
 .PHONY:		all clean fclean re bonus rebonus

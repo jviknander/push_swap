@@ -6,30 +6,24 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:46:34 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/21 18:10:21 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/22 01:58:09 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../includes/push_swap.h"
 
 //the stack is sorted
 
-void	is_sorted(t_stack **head)
+int	is_sorted(t_stack **head)
 {
-	int	size;
+	t_stack	*temp;
 
-	size = head_size(head);
-	if (head->next->number > head->number)
+	temp = *head;
+	while (temp->number < temp->next->number)
 	{
-		head->next;
-		return (0);
-	}
-	else
-	{
-		if (size == 3)
-			order_3(head);
-		if (size == 5)
-			order_5(head);
+		temp = temp->next;
+		if (temp->next == NULL)
+			return (1);
 	}
 	return (0);
 }
@@ -38,14 +32,23 @@ void	is_sorted(t_stack **head)
 
 void	order_3(t_stack **head)
 {
-	if (head->number[0] > head->number[2])
+	if ((*head)->next->number < (*head)->number)
 	{
-
-				
+		if (max_list(*head) == (*head)->number)
+			rotate(head);
+		if (is_sorted(head) == 0)
+			swap(head);
 	}
-	else
-
-
+	else if (is_sorted(head) == 0)
+	{
+		if (min_list(*head) == (*head)->number)
+		{
+			swap(head);
+			rotate(head);
+		}
+		else
+			rev_rot(head);
+	}
 }
 
-//order 5
+

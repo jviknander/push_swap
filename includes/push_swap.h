@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 12:40:53 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/21 18:10:27 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/22 01:51:48 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ typedef	struct s_struct
 
 
 
-/*-*-*-*-*-*-*- push_swap.c -*-*-*-*-*-*/
-int		main(int argc, char **agrv);
+/*-*-*-*-*-*-*- main.c -*-*-*-*-*-*/
+int		main(int argc, char **argv);
 
 
 /*-*-*-*-*-*-*- list_1.c -*-*-*-*-*-*/
@@ -63,7 +63,7 @@ void	rev_rot(t_stack **head);
 void	rra_rrb_rrr(t_stack **a, t_stack **b, char stack);
 
 /*---------------order.c------------*/
-void	is_sorted(t_stack **head);
+int		is_sorted(t_stack **head);
 void	order_3(t_stack **head);
 void	order_5(t_stack **head);
 

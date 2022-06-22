@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/15 21:28:13 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/16 16:06:40 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/22 01:09:51 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	rra_rrb_rrr(t_stack **a, t_stack **b, char stack)
 {
 	if (stack == 'a')
 	{
-		rer_rot(a);
+		rev_rot(a);
 		write(1, "rra\n", 4);
 	}
 	else if (stack == 'b')
