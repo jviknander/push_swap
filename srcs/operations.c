@@ -6,10 +6,9 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 00:06:29 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/22 00:59:29 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/23 01:06:47 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../includes/push_swap.h"
 
@@ -26,26 +25,6 @@ void	swap(t_stack **head)
 	(*head)->next->number = tmp;
 }
 
-void	sa_sb_ss(t_stack **a, t_stack **b, char stack)
-{
-	if (stack == 'a')
-	{
-		swap(a);
-		write(1, "sa\n", 3);
-	}
-	else if (stack == 'b')
-	{
-		swap(b);
-		write(1, "sb\n", 3);
-	}
-	else
-	{
-		swap(a);
-		swap(b);
-		write(1, "ss\n", 3);
-	}
-}
-
 void	push(t_stack **src, t_stack **dest)
 {
 	t_stack	*temp;
@@ -55,19 +34,38 @@ void	push(t_stack **src, t_stack **dest)
 	temp->prev = NULL;
 	add_node_front(src, temp);
 }
+// shifts up all elements by 1
 
-void	pa_pb(t_stack **a, t_stack **b, char stack)
+void	rotate(t_stack **head)
 {
-	if (stack == 'a')
-	{
-		push(b, a);
-		write(1, "pa\n", 3);
-	}
-	else if (stack == 'b')
-	{
-		push(a, b);
-		write(1, "pb\n", 3);
-	}
+	t_stack	*new_head;
+	t_stack	*go_last;
+
+	if (!(*head))
+		return ;
+	new_head = (*head)->next;
+	(*head)->prev = NULL;
+	go_last = (*head);
+	last_node(*head)->next = go_last;
+	go_last->next = NULL;
+	(*head) = new_head;
+}
+
+// shifts down all elements by 1
+
+void	rev_rot(t_stack **head)
+{
+	t_stack	*new_head;
+	t_stack	*go_last;
+
+	if (!(*head))
+		return ;
+	go_last = last_node(*head)->prev;
+	new_head = last_node(*head);
+	go_last->next = NULL;
+	new_head->prev = NULL;
+	new_head->next = (*head);
+	(*head) = new_head;
 }
 /*
 int main(int argc, char **argv)

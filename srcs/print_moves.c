@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 17:16:46 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/23 01:09:54 by jde-melo         ###   ########.fr       */
+/*   Created: 2022/06/23 00:00:09 by jde-melo          #+#    #+#             */
+/*   Updated: 2022/06/23 01:08:24 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+void	print_moves(t_stack **head, char *str, void (*f)(t_stack **), int times)
 {
-	t_stack	*a_stack;
-	t_stack	*b_stack;
-	int		i;
-
-	i = 1;
-	a_stack = NULL;
-	b_stack = NULL;
-	if (argc >= 2)
+	if (!head)
+		return ;
+	while (times--)
 	{
-		while (argc > i)
-		{
-			add_node_back(&a_stack, new_node(ft_atoi(argv[i++])));
-		}
-		order_3(&a_stack);
+		f(head);
+		ft_putstr_fd(str, 1);
+	}
+}
+
+void	print_push(t_stack **head_1, t_stack **head_2, int times, char stack)
+{
+	if (!head_1 || !head_2)
+		return ;
+	while (times--)
+	{
+		push(head_1, head_2);
+		if (stack == 'a')
+			ft_putstr_fd("pa\n", 1);
+		else
+			ft_putstr_fd("pb\n", 1);
 	}
 }

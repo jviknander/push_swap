@@ -6,13 +6,13 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:08:34 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/21 16:24:26 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/23 01:06:19 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-long	ft_atol(char *str);
+long	ft_atol(char *str)
 {
 	int		i;
 	long	result;
@@ -39,8 +39,8 @@ long	ft_atol(char *str);
 
 int	is_duplicate(char **argv)
 {
-	int i;
-	int dup;
+	int	i;
+	int	dup;
 
 	i = 0;
 	while (argv[i])
@@ -57,14 +57,14 @@ int	is_duplicate(char **argv)
 	return (0);
 }
 
-int	is_int(int argc, char **argv)
+int	is_int(char **argv)
 {
 	int		i;
 	int		arg;
 	long	nb;
 
 	arg = 1;
-	while (argv[arg] )
+	while (argv[arg])
 	{
 		i = 0;
 		while (argv[arg][i])
@@ -72,7 +72,7 @@ int	is_int(int argc, char **argv)
 			while (argv[arg][i] == '-' || argv[arg][i] == '+')
 				i++;
 			nb = atol(argv[arg]);
-			if (ft_isdigit(argv[arg][i]) == 0 || 
+			if (ft_isdigit(argv[arg][i]) == 0 ||
 					(nb > 2147483647 || nb < -2147483648))
 				return (1);
 			i++;
@@ -82,12 +82,11 @@ int	is_int(int argc, char **argv)
 	return (0);
 }
 
-
 int	error_404(int argc, char **argv)
 {
 	if (is_duplicate(argv))
 		return (1);
-	if (is_int(argc, argv))
+	if (is_int(argv))
 		return (1);
 	if (argc == 1)
 		return (1);

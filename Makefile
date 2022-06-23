@@ -6,7 +6,7 @@
 #    By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 13:22:51 by jde-melo          #+#    #+#              #
-#    Updated: 2022/06/22 01:35:13 by jde-melo         ###   ########.fr        #
+#    Updated: 2022/06/23 00:59:46 by jde-melo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,17 +17,23 @@ RM		= /bin/rm -f
 NAME	= push_swap
 
 INCLUDE	= ./includes/push_swap.h ./libft/libft.h
-SRCS	= push_swap.c main.c error_404.c list_1.c list_2.c \
-		  order.c r_rr.c p_s.c
+
+SRCS	= srcs/push_swap.c \
+		  srcs/main.c \
+		  srcs/error_404.c \
+		  srcs/list_1.c \
+		  srcs/list_2.c \
+		  srcs/order.c \
+		  srcs/operations.c \
+		  srcs/print_moves.c
 
 all:		$(NAME)
 
 OBJS	= ${SRCS:.c=.o}
 
 $(NAME):	$(OBJS) $(INCLUDE)
-			$(NAME) $(OBJS)
-			$(NAME)
-
+			make -C libft
+			$(CC) $(CFALGS) $(OBJS)	./libft/libft.a -o $(NAME)
 
 clean:
 			$(RM) $(OBJS)
@@ -36,5 +42,3 @@ fclean:		clean
 			$(RM) $(NAME)
 
 re:			fclean all
-
-.PHONY:		all clean fclean re bonus rebonus
