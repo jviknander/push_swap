@@ -6,7 +6,7 @@
 #    By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 13:22:51 by jde-melo          #+#    #+#              #
-#    Updated: 2022/06/23 00:59:46 by jde-melo         ###   ########.fr        #
+#    Updated: 2022/06/23 13:34:46 by jde-melo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCS	= srcs/push_swap.c \
 		  srcs/list_2.c \
 		  srcs/order.c \
 		  srcs/operations.c \
-		  srcs/print_moves.c
+		  srcs/print_moves.c \
+		  srcs/init_stack.c
 
 all:		$(NAME)
 

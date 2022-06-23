@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/21 17:16:46 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/23 13:49:00 by jde-melo         ###   ########.fr       */
+/*   Created: 2022/06/23 12:40:35 by jde-melo          #+#    #+#             */
+/*   Updated: 2022/06/23 13:49:52 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+void	init_stack(int argc, char **argv, t_stack **head)
 {
-	t_stack	**head_a;	
+	int		i;
 
-	head_a = NULL;
-	init_stack(argc, argv, head_a);
-	if (error_404(argc, argv) == 0)
-	{
-		if (argc >= 2)
-		{
-			push_swap(head_a);
-		}
-	}
-	else
-		return (write(1, "Error\n", 6));
+	i = 0;
+	while (argc > i)
+		add_node_back(head, new_node(ft_atoi(argv[i++])));
 }
