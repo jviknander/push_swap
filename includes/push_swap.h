@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 12:40:53 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/23 13:36:33 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/25 00:26:24 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,6 @@ void	rev_rot(t_stack **head);
 int		is_sorted(t_stack **head);
 void	order_3(t_stack **head);
 //void	order_5(t_stack **head);
-
-/*---------------init_stack.c------------*/
-void	init_stack(int argc, char **argv, t_stack **head);
 
 /*---------------print.c------------*/
 void	printlist(t_stack **head);

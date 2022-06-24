@@ -6,12 +6,12 @@
 #    By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 13:22:51 by jde-melo          #+#    #+#              #
-#    Updated: 2022/06/23 13:34:46 by jde-melo         ###   ########.fr        #
+#    Updated: 2022/06/25 00:33:39 by jde-melo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 RM		= /bin/rm -f
 
 NAME	= push_swap
@@ -25,8 +25,7 @@ SRCS	= srcs/push_swap.c \
 		  srcs/list_2.c \
 		  srcs/order.c \
 		  srcs/operations.c \
-		  srcs/print_moves.c \
-		  srcs/init_stack.c
+		  srcs/print_moves.c 
 
 all:		$(NAME)
 

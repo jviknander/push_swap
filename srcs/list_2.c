@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 14:24:25 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/23 13:35:28 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/25 00:42:51 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	head_size(t_stack *head)
 	int	size;
 
 	size = 0;
-	while (head)
+	while (head->next)
 	{
 		head = head->next;
 		size++;
