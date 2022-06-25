@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 12:40:53 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/25 00:26:24 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/25 17:02:57 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_struct
 int		main(int argc, char **argv);
 
 /*-*-*-*-*-*-*- push_swap.c -*-*-*-*-*-*/
-void	push_swap(t_stack **head);
+void	push_swap(t_stack **head_a, t_stack **head_b);
 
 /*-*-*-*-*-*-*- list_1.c -*-*-*-*-*-*/
 t_stack	*new_node(int number);
@@ -58,10 +58,11 @@ void	rev_rot(t_stack **head);
 /*---------------order.c------------*/
 int		is_sorted(t_stack **head);
 void	order_3(t_stack **head);
-//void	order_5(t_stack **head);
+void	order_5(t_stack **head_a, t_stack **head_b);
 
 /*---------------print.c------------*/
 void	printlist(t_stack **head);
+void	print_push(t_stack **head_1, t_stack **head_2, int times, char stack);
 void	print_moves(t_stack **head, char *str,
 			void (*f)(t_stack **), int times);
 

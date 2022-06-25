@@ -6,7 +6,7 @@
 /*   By: jde-melo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/06 11:46:34 by jde-melo          #+#    #+#             */
-/*   Updated: 2022/06/23 13:31:42 by jde-melo         ###   ########.fr       */
+/*   Updated: 2022/06/25 17:20:31 by jde-melo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,3 +50,34 @@ void	order_3(t_stack **head)
 			print_moves(head, "rra\n", rev_rot, 1);
 	}
 }
+
+// order 5
+
+void	order_5(t_stack **head_a, t_stack **head_b)
+{
+	print_push(head_a, head_b, 2, 'b');
+	order_3(head_a);
+	if (is_sorted(head_a) == 1)
+	{
+		print_push(head_b, head_a, 1, 'a');
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
