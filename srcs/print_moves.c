@@ -23,13 +23,13 @@ void	print_moves(t_stack **head, char *str, void (*f)(t_stack **), int times)
 	}
 }
 
-void	print_push(t_stack **head_1, t_stack **head_2, int times, char stack)
+void	print_push(t_stack **head_a, t_stack **head_b, int times, char stack)
 {
-	if (!head_1 || !head_2)
+	if (!head_a || !head_b)
 		return ;
 	while (times--)
 	{
-		push(head_1, head_2);
+		push(head_a, head_b);
 		if (stack == 'a')
 			ft_putstr_fd("pa\n", 1);
 		else

@@ -28,7 +28,7 @@ int	is_sorted(t_stack **head)
 	return (0);
 }
 
-//order 3
+//order3
 
 void	order_3(t_stack **head)
 {
@@ -51,14 +51,17 @@ void	order_3(t_stack **head)
 	}
 }
 
-// order 5
+// order5
 
 void	order_5(t_stack **head_a, t_stack **head_b)
 {
-	while ()
-	min_list(*head);
-	print_push(head_a, head_b, 2, 'b');
-
+	if (!is_sorted(head_a))
+	{
+		min_list(*head_a);
+		print_push(head_a, head_b, 2, 'b');
+	}
+	order_3(head_a);
+	print_push(head_a, head_b, 2, 'a');
 }
 
 
